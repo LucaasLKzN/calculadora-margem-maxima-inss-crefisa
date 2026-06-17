@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Margem Máxima INSS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <section class="calculator" aria-labelledby="page-title">
+      <div class="intro">
+        <p class="eyebrow">INSS Crefisa</p>
+        <h1 id="page-title">Calculadora de parcela máxima</h1>
+        <p>Simule a parcela máxima permitida antes de enviar o valor para a API calcular o crédito liberado ao cliente.</p>
+      </div>
+
+      <form id="marginForm" class="form" novalidate>
+        <div class="field">
+          <label for="benefitValue">Valor do benefício</label>
+          <div class="money-input">
+            <span>R$</span>
+            <input type="text" id="benefitValue" inputmode="decimal" placeholder="0,00" required>
+          </div>
+          <small class="error" id="benefitError"></small>
+        </div>
+
+        <fieldset class="choice-group">
+          <legend>Cliente possui empréstimo ativo?</legend>
+          <label>
+            <input type="radio" name="hasLoan" value="yes">
+            Sim
+          </label>
+          <label>
+            <input type="radio" name="hasLoan" value="no" checked>
+            Não
+          </label>
+        </fieldset>
+
+        <div class="field hidden" id="loanField">
+          <label for="loanValue">Valor de empréstimos ativos</label>
+          <div class="money-input">
+            <span>R$</span>
+            <input type="text" id="loanValue" inputmode="decimal" placeholder="0,00">
+          </div>
+          <small class="error" id="loanError"></small>
+        </div>
+
+        <fieldset class="choice-group">
+          <legend>Cliente recebe via Crefisa?</legend>
+          <label>
+            <input type="radio" name="receivesCrefisa" value="yes">
+            Sim
+          </label>
+          <label>
+            <input type="radio" name="receivesCrefisa" value="no" checked>
+            Não
+          </label>
+        </fieldset>
+
+        <label class="consent" id="consentField">
+          <input type="checkbox" id="consentCheck">
+          <span>Cliente autorizou o uso das informações para cálculo em banco conveniado.</span>
+        </label>
+        <small class="error" id="consentError"></small>
+
+        <fieldset class="choice-group">
+          <legend>Existem débitos no dia do recebimento?</legend>
+          <label>
+            <input type="radio" name="hasDebit" value="yes">
+            Sim
+          </label>
+          <label>
+            <input type="radio" name="hasDebit" value="no" checked>
+            Não
+          </label>
+        </fieldset>
+
+        <div class="field hidden" id="debitField">
+          <label for="debitValue">Valor total dos débitos no dia</label>
+          <div class="money-input">
+            <span>R$</span>
+            <input type="text" id="debitValue" inputmode="decimal" placeholder="0,00">
+          </div>
+          <small class="error" id="debitError"></small>
+        </div>
+
+        <button type="submit">Calcular parcela máxima</button>
+      </form>
+    </section>
+
+    <aside class="result" aria-live="polite">
+      <p class="eyebrow">Resultado</p>
+      <h2 id="maximumInstallment">R$ 0,00</h2>
+      <p class="result-label">Parcela máxima permitida</p>
+
+      <dl class="summary">
+        <div>
+          <dt>Percentual aplicado</dt>
+          <dd id="rateResult">30%</dd>
+        </div>
+        <div>
+          <dt>Prazo máximo</dt>
+          <dd id="termResult">12 vezes</dd>
+        </div>
+        <div>
+          <dt>Base após empréstimos</dt>
+          <dd id="baseResult">R$ 0,00</dd>
+        </div>
+        <div>
+          <dt>Valor para API</dt>
+          <dd id="apiResult">parcela Maxima: R$ 0,00</dd>
+        </div>
+      </dl>
+
+      <div class="formula">
+        <strong>Cálculo</strong>
+        <p id="formulaText">Informe os dados para calcular.</p>
+      </div>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
