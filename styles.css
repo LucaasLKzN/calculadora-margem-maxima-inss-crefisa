@@ -325,24 +325,10 @@ body {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 11px;
   font-size: 21px;
   font-weight: 800;
-  letter-spacing: -.06em;
+  letter-spacing: -.025em;
 }
-
-.brand-symbol {
-  width: 32px;
-  height: 32px;
-  display: grid;
-  place-items: center;
-  border-radius: 9px;
-  background: var(--primary);
-  color: #fff;
-  font-size: 20px;
-}
-
-.brand-dot { color: var(--primary); }
 .header-context { color: var(--muted); font-size: 12px; font-weight: 600; }
 .header-context span { margin: 0 9px; color: #c0c8d2; }
 

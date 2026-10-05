@@ -126,7 +126,7 @@ function calculate() {
   rateResult.textContent = `${Math.round(rate * 100)}%`;
   termResult.textContent = `${term} vezes`;
   baseResult.textContent = formatMoney(baseAfterLoans);
-  apiResult.textContent = `parcelaMaxima: ${maximum.toFixed(2)}`;
+  apiResult.textContent = `Parcela máxima: ${formatMoney(maximum)}`;
   formulaText.textContent = `${formatMoney(values.benefit)} - ${formatMoney(activeLoan)} = ${formatMoney(baseAfterLoans)}. ${formatMoney(baseAfterLoans)} x ${Math.round(rate * 100)}% = ${formatMoney(installmentBeforeDebits)}. ${formatMoney(installmentBeforeDebits)} - ${formatMoney(sameDayDebit)} = ${formatMoney(maximum)}.`;
 }
 
