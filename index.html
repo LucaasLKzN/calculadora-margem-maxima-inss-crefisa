@@ -3,16 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Margem Máxima INSS</title>
+  <title>Calculadora de Margem INSS | Grandino</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand" aria-label="Grandino"><span class="brand-symbol" aria-hidden="true">G</span><span>grandino<span class="brand-dot">.</span></span></div>
+      <span class="header-context">Ferramentas <span aria-hidden="true">/</span> INSS Crefisa</span>
+    </div>
+  </header>
   <main class="app">
     <section class="calculator" aria-labelledby="page-title">
       <div class="intro">
-        <p class="eyebrow">INSS Crefisa</p>
-        <h1 id="page-title">Calculadora de parcela máxima</h1>
-        <p>Simule a parcela máxima permitida antes de enviar o valor para a API calcular o crédito liberado ao cliente.</p>
+        <p class="eyebrow">Simulador INSS</p>
+        <h1 id="page-title">Calculadora de <span>parcela máxima</span></h1>
+        <p>Informe os dados do benefício para descobrir a parcela máxima disponível e o valor a enviar para a API de crédito.</p>
       </div>
 
       <form id="marginForm" class="form" novalidate>
@@ -85,14 +94,15 @@
           <small class="error" id="debitError"></small>
         </div>
 
-        <button type="submit">Calcular parcela máxima</button>
+        <button type="submit">Calcular parcela máxima <span aria-hidden="true">→</span></button>
       </form>
     </section>
 
     <aside class="result" aria-live="polite">
-      <p class="eyebrow">Resultado</p>
-      <h2 id="maximumInstallment">R$ 0,00</h2>
+      <p class="eyebrow">Resultado da simulação</p>
       <p class="result-label">Parcela máxima permitida</p>
+      <h2 id="maximumInstallment">R$ 0,00</h2>
+      <p class="result-hint">Valor estimado para esta operação</p>
 
       <dl class="summary">
         <div>
@@ -109,13 +119,13 @@
         </div>
         <div>
           <dt>Valor para API</dt>
-          <dd id="apiResult">parcela Maxima: R$ 0,00</dd>
+          <dd id="apiResult">parcelaMaxima: 0.00</dd>
         </div>
       </dl>
 
       <div class="formula">
-        <strong>Cálculo</strong>
-        <p id="formulaText">Informe os dados para calcular.</p>
+        <strong>Como chegamos ao resultado</strong>
+        <p id="formulaText">Informe os dados e clique em calcular para visualizar a composição da parcela.</p>
       </div>
     </aside>
   </main>
